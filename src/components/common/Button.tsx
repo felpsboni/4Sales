@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { cn } from '../../lib/utils';
 import { Loader2 } from 'lucide-react';
 
@@ -23,6 +24,7 @@ export const Button: React.FC<ButtonProps> = ({
   href,
   isExternal,
   disabled,
+  onClick,
   ...props
 }) => {
   const baseStyles =
@@ -52,12 +54,29 @@ export const Button: React.FC<ButtonProps> = ({
   const combinedClasses = cn(baseStyles, variantStyles, sizeStyles, className);
 
   if (href) {
+    const isInternalRoute = href.startsWith('/') && !href.startsWith('//') && !isExternal;
+
+    if (isInternalRoute) {
+      return (
+        <Link
+          to={href}
+          className={combinedClasses}
+          onClick={onClick as any}
+        >
+          {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : leftIcon}
+          <span>{children}</span>
+          {!isLoading && rightIcon}
+        </Link>
+      );
+    }
+
     return (
       <a
         href={href}
         className={combinedClasses}
         target={isExternal ? '_blank' : undefined}
         rel={isExternal ? 'noopener noreferrer' : undefined}
+        onClick={onClick as any}
       >
         {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : leftIcon}
         <span>{children}</span>
@@ -70,6 +89,7 @@ export const Button: React.FC<ButtonProps> = ({
     <button
       className={combinedClasses}
       disabled={disabled || isLoading}
+      onClick={onClick}
       {...props}
     >
       {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : leftIcon}

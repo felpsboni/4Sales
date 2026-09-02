@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Logo } from '../common/Logo';
 import { ThemeToggle } from '../common/ThemeToggle';
 import { COMPANY_INFO } from '../../data/siteData';
@@ -16,6 +16,20 @@ import {
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleSectionClick = (e: React.MouseEvent, sectionId: string) => {
+    e.preventDefault();
+    if (location.pathname === '/' || location.pathname === '') {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      navigate(`/#${sectionId}`);
+    }
+  };
 
   return (
     <footer className="bg-[#0A2540] text-white pt-16 pb-24 md:pb-16 border-t border-slate-800">
@@ -76,32 +90,56 @@ export const Footer: React.FC = () => {
             </span>
             <ul className="flex flex-col gap-2.5 text-sm text-slate-300">
               <li>
-                <a href="/#ecossistema" className="hover:text-[#00D4B2] transition-colors">
+                <a
+                  href="#plataforma"
+                  onClick={(e) => handleSectionClick(e, 'plataforma')}
+                  className="hover:text-[#00D4B2] transition-colors cursor-pointer"
+                >
                   CRM Comercial
                 </a>
               </li>
               <li>
-                <a href="/#ecossistema" className="hover:text-[#00D4B2] transition-colors">
+                <a
+                  href="#plataforma"
+                  onClick={(e) => handleSectionClick(e, 'plataforma')}
+                  className="hover:text-[#00D4B2] transition-colors cursor-pointer"
+                >
                   Força de Vendas (SFA)
                 </a>
               </li>
               <li>
-                <a href="/#ecossistema" className="hover:text-[#00D4B2] transition-colors">
+                <a
+                  href="#plataforma"
+                  onClick={(e) => handleSectionClick(e, 'plataforma')}
+                  className="hover:text-[#00D4B2] transition-colors cursor-pointer"
+                >
                   Portal de Pedidos B2B
                 </a>
               </li>
               <li>
-                <a href="/#sistema" className="hover:text-[#00D4B2] transition-colors">
+                <a
+                  href="#funcionalidades"
+                  onClick={(e) => handleSectionClick(e, 'funcionalidades')}
+                  className="hover:text-[#00D4B2] transition-colors cursor-pointer"
+                >
                   Gestão de Pedidos
                 </a>
               </li>
               <li>
-                <a href="/#integracao" className="hover:text-[#00D4B2] transition-colors">
+                <a
+                  href="#integracao"
+                  onClick={(e) => handleSectionClick(e, 'integracao')}
+                  className="hover:text-[#00D4B2] transition-colors cursor-pointer"
+                >
                   Integração com ERP
                 </a>
               </li>
               <li>
-                <a href="/#sistema" className="hover:text-[#00D4B2] transition-colors">
+                <a
+                  href="#funcionalidades"
+                  onClick={(e) => handleSectionClick(e, 'funcionalidades')}
+                  className="hover:text-[#00D4B2] transition-colors cursor-pointer"
+                >
                   Analytics & Metas
                 </a>
               </li>
@@ -115,17 +153,29 @@ export const Footer: React.FC = () => {
             </span>
             <ul className="flex flex-col gap-2.5 text-sm text-slate-300">
               <li>
-                <a href="/#sobre" className="hover:text-[#00D4B2] transition-colors">
+                <a
+                  href="#plataforma"
+                  onClick={(e) => handleSectionClick(e, 'plataforma')}
+                  className="hover:text-[#00D4B2] transition-colors cursor-pointer"
+                >
                   Sobre a Plataforma
                 </a>
               </li>
               <li>
-                <a href="/#funcionalidades" className="hover:text-[#00D4B2] transition-colors">
+                <a
+                  href="#funcionalidades"
+                  onClick={(e) => handleSectionClick(e, 'funcionalidades')}
+                  className="hover:text-[#00D4B2] transition-colors cursor-pointer"
+                >
                   Todas as Funcionalidades
                 </a>
               </li>
               <li>
-                <a href="/#cases" className="hover:text-[#00D4B2] transition-colors">
+                <a
+                  href="#cases"
+                  onClick={(e) => handleSectionClick(e, 'cases')}
+                  className="hover:text-[#00D4B2] transition-colors cursor-pointer"
+                >
                   Cases de Sucesso em Vídeo
                 </a>
               </li>
@@ -136,12 +186,20 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <a href="/#implantacao" className="hover:text-[#00D4B2] transition-colors">
+                <a
+                  href="#implantacao"
+                  onClick={(e) => handleSectionClick(e, 'implantacao')}
+                  className="hover:text-[#00D4B2] transition-colors cursor-pointer"
+                >
                   Processo de Implantação
                 </a>
               </li>
               <li>
-                <a href="/#faq" className="hover:text-[#00D4B2] transition-colors">
+                <a
+                  href="#faq"
+                  onClick={(e) => handleSectionClick(e, 'faq')}
+                  className="hover:text-[#00D4B2] transition-colors cursor-pointer"
+                >
                   Perguntas Frequentes (FAQ)
                 </a>
               </li>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { SectionHeader } from '../common/SectionHeader';
 import { Button } from '../common/Button';
 import { COMPANY_INFO } from '../../data/siteData';
@@ -410,13 +410,13 @@ export const DemoFormSection: React.FC = () => {
                   />
                   <span className="text-[11px] sm:text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                     Concordo em receber o contato da equipe da Fabritech / 4Sales e confirmo que li e aceito a{' '}
-                    <a
-                      href="/politica-de-privacidade"
+                    <Link
+                      to="/politica-de-privacidade"
                       target="_blank"
                       className="text-[#0066F5] dark:text-cyan-400 underline font-semibold hover:text-[#0052c7] dark:hover:text-cyan-300"
                     >
                       Política de Privacidade
-                    </a>
+                    </Link>
                     .
                   </span>
                 </label>

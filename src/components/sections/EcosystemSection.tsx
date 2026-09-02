@@ -21,6 +21,7 @@ export const EcosystemSection: React.FC = () => {
 
   return (
     <section id="plataforma" className="py-20 lg:py-28 bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 relative overflow-hidden transition-colors">
+      <div id="ecossistema" className="sr-only" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}

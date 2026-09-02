@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Logo } from '../common/Logo';
 import { Button } from '../common/Button';
@@ -16,6 +16,7 @@ export const Header: React.FC<HeaderProps> = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('inicio');
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,7 +24,7 @@ export const Header: React.FC<HeaderProps> = () => {
       setIsScrolled(scrollY > 15);
 
       // Section scroll spy
-      if (location.pathname === '/') {
+      if (location.pathname === '/' || location.pathname === '') {
         const sections = [
           'inicio',
           'problemas',
@@ -53,22 +54,23 @@ export const Header: React.FC<HeaderProps> = () => {
   }, [location.pathname]);
 
   const navLinks = [
-    { label: 'Início', href: '/#inicio', id: 'inicio' },
-    { label: 'Plataforma', href: '/#plataforma', id: 'plataforma' },
-    { label: 'Funcionalidades', href: '/#funcionalidades', id: 'funcionalidades' },
-    { label: 'Integração ERP', href: '/#integracao', id: 'integracao' },
-    { label: 'Cases', href: '/#cases', id: 'cases' },
-    { label: 'Conteúdos', href: '/conteudos', id: 'conteudos' },
+    { label: 'Início', sectionId: 'inicio', isRoute: false },
+    { label: 'Plataforma', sectionId: 'plataforma', isRoute: false },
+    { label: 'Funcionalidades', sectionId: 'funcionalidades', isRoute: false },
+    { label: 'Integração ERP', sectionId: 'integracao', isRoute: false },
+    { label: 'Cases', sectionId: 'cases', isRoute: false },
+    { label: 'Conteúdos', href: '/conteudos', isRoute: true },
   ];
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (sectionId: string) => {
     setMobileMenuOpen(false);
-    if (href.startsWith('/#') && location.pathname === '/') {
-      const elementId = href.replace('/#', '');
-      const element = document.getElementById(elementId);
+    if (location.pathname === '/' || location.pathname === '') {
+      const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
+    } else {
+      navigate(`/#${sectionId}`);
     }
   };
 
@@ -107,12 +109,8 @@ export const Header: React.FC<HeaderProps> = () => {
             aria-label="Navegação Principal"
           >
             {navLinks.map((link) => {
-              const isRouterLink = link.href.startsWith('/conteudos');
-              const isActive = isRouterLink
-                ? location.pathname.startsWith('/conteudos')
-                : location.pathname === '/' && activeSection === link.id;
-
-              if (isRouterLink) {
+              if (link.isRoute && link.href) {
+                const isActive = location.pathname.startsWith('/conteudos');
                 return (
                   <Link
                     key={link.label}
@@ -135,17 +133,19 @@ export const Header: React.FC<HeaderProps> = () => {
                 );
               }
 
+              const isActive = (location.pathname === '/' || location.pathname === '') && activeSection === link.sectionId;
+
               return (
                 <a
                   key={link.label}
-                  href={link.href}
+                  href={`#${link.sectionId}`}
                   onClick={(e) => {
-                    if (location.pathname === '/') {
-                      e.preventDefault();
-                      handleNavClick(link.href);
+                    e.preventDefault();
+                    if (link.sectionId) {
+                      handleNavClick(link.sectionId);
                     }
                   }}
-                  className={`relative px-3.5 py-1.5 text-xs xl:text-sm font-semibold rounded-full transition-colors z-10 ${
+                  className={`relative px-3.5 py-1.5 text-xs xl:text-sm font-semibold rounded-full transition-colors z-10 cursor-pointer ${
                     isActive
                       ? 'text-[#0066F5] dark:text-cyan-400 font-bold'
                       : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
@@ -184,11 +184,10 @@ export const Header: React.FC<HeaderProps> = () => {
 
             {/* Primary Action Button */}
             <Button
-              href="/#demonstracao"
               variant="primary"
               size="sm"
               rightIcon={<ArrowRight className="w-3.5 h-3.5" />}
-              onClick={() => handleNavClick('/#demonstracao')}
+              onClick={() => handleNavClick('demonstracao')}
               className="font-bold shadow-sm hover:shadow"
             >
               Solicitar demonstração
@@ -223,9 +222,7 @@ export const Header: React.FC<HeaderProps> = () => {
           >
             <div className="max-w-7xl mx-auto px-4 py-4 space-y-1">
               {navLinks.map((link) => {
-                const isRouterLink = link.href.startsWith('/conteudos');
-
-                if (isRouterLink) {
+                if (link.isRoute && link.href) {
                   return (
                     <Link
                       key={link.label}
@@ -242,9 +239,14 @@ export const Header: React.FC<HeaderProps> = () => {
                 return (
                   <a
                     key={link.label}
-                    href={link.href}
-                    onClick={() => handleNavClick(link.href)}
-                    className="px-4 py-3 text-sm font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[#0066F5] dark:hover:text-cyan-400 rounded-xl transition-colors flex items-center justify-between"
+                    href={`#${link.sectionId}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (link.sectionId) {
+                        handleNavClick(link.sectionId);
+                      }
+                    }}
+                    className="px-4 py-3 text-sm font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-[#0066F5] dark:hover:text-cyan-400 rounded-xl transition-colors flex items-center justify-between cursor-pointer"
                   >
                     <span>{link.label}</span>
                     <ChevronRight className="w-4 h-4 text-slate-400" />
@@ -264,11 +266,10 @@ export const Header: React.FC<HeaderProps> = () => {
                 </a>
 
                 <Button
-                  href="/#demonstracao"
                   variant="primary"
                   size="md"
                   className="w-full justify-center font-bold"
-                  onClick={() => handleNavClick('/#demonstracao')}
+                  onClick={() => handleNavClick('demonstracao')}
                 >
                   Solicitar demonstração
                 </Button>
