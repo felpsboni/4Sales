@@ -1,0 +1,55 @@
+<svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="favTeal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00C49F" />
+      <stop offset="100%" stop-color="#0099B8" />
+    </linearGradient>
+    <linearGradient id="favBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#26B4F3" />
+      <stop offset="100%" stop-color="#0077DF" />
+    </linearGradient>
+    <linearGradient id="favPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9C3270" />
+      <stop offset="100%" stop-color="#6F1A52" />
+    </linearGradient>
+    <linearGradient id="favOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF9022" />
+      <stop offset="100%" stop-color="#F25B00" />
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(10, 8) scale(0.95)">
+    <!-- Base Navy Swoosh -->
+    <path
+      d="M20 95 C 16 115, 30 135, 52 145 C 40 138, 28 120, 26 100 C 25 85, 29 70, 35 55 C 31 68, 23 80, 20 95 Z"
+      fill="#0F2042"
+    />
+
+    <!-- Top Purple Arc -->
+    <path
+      d="M48 30 C 58 20, 72 15, 85 14 C 76 17, 63 24, 55 33 C 45 44, 40 56, 38 68 C 37 54, 41 40, 48 30 Z"
+      fill="url(#favPurple)"
+    />
+    <rect x="90" y="10" width="12" height="24" rx="6" transform="rotate(35 90 10)" fill="url(#favPurple)" />
+
+    <!-- Blue Middle Swoosh -->
+    <path
+      d="M34 110 C 28 85, 38 52, 65 30 C 80 18, 98 14, 115 15 C 100 20, 85 28, 74 38 C 52 58, 44 85, 48 112 C 43 113, 38 112, 34 110 Z"
+      fill="url(#favBlue)"
+    />
+
+    <!-- Teal Center Swoosh -->
+    <path
+      d="M48 126 C 45 105, 56 80, 78 62 C 92 50, 108 44, 124 43 C 110 49, 97 58, 87 69 C 70 87, 64 108, 68 128 C 61 129, 54 128, 48 126 Z"
+      fill="url(#favTeal)"
+    />
+    <rect x="130" y="44" width="14" height="28" rx="7" transform="rotate(40 130 44)" fill="url(#favTeal)" />
+
+    <!-- Orange Lower Swoosh -->
+    <path
+      d="M62 138 C 65 125, 74 110, 88 98 C 98 90, 108 85, 118 84 C 110 88, 102 94, 96 101 C 85 113, 81 126, 82 138 C 75 140, 68 140, 62 138 Z"
+      fill="url(#favOrange)"
+    />
+    <rect x="126" y="85" width="12" height="22" rx="6" transform="rotate(42 126 85)" fill="url(#favOrange)" />
+  </g>
+</svg>

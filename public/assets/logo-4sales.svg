@@ -1,0 +1,113 @@
+<svg viewBox="0 0 420 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient for Teal/Cyan elements -->
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00C49F" />
+      <stop offset="100%" stop-color="#0099B8" />
+    </linearGradient>
+
+    <!-- Gradient for Blue Swoosh -->
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#26B4F3" />
+      <stop offset="100%" stop-color="#0077DF" />
+    </linearGradient>
+
+    <!-- Gradient for Purple/Magenta Swoosh -->
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9C3270" />
+      <stop offset="100%" stop-color="#6F1A52" />
+    </linearGradient>
+
+    <!-- Gradient for Orange Swoosh -->
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF9022" />
+      <stop offset="100%" stop-color="#F25B00" />
+    </linearGradient>
+
+    <!-- Gradient for 'S' -->
+    <linearGradient id="sGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00D4B2" />
+      <stop offset="100%" stop-color="#0080B8" />
+    </linearGradient>
+  </defs>
+
+  <!-- EMBLEM / SPHERE SWOOSHES -->
+  <g transform="translate(10, 15)">
+    <!-- Base Navy Swoosh -->
+    <path
+      d="M20 95 C 16 115, 30 135, 52 145 C 40 138, 28 120, 26 100 C 25 85, 29 70, 35 55 C 31 68, 23 80, 20 95 Z"
+      fill="#0F2042"
+    />
+
+    <!-- Top Purple Arc -->
+    <path
+      d="M48 30 C 58 20, 72 15, 85 14 C 76 17, 63 24, 55 33 C 45 44, 40 56, 38 68 C 37 54, 41 40, 48 30 Z"
+      fill="url(#purpleGrad)"
+    />
+    <!-- Purple Top Capsule -->
+    <rect x="90" y="10" width="12" height="24" rx="6" transform="rotate(35 90 10)" fill="url(#purpleGrad)" />
+
+    <!-- Blue Middle Swoosh -->
+    <path
+      d="M34 110 C 28 85, 38 52, 65 30 C 80 18, 98 14, 115 15 C 100 20, 85 28, 74 38 C 52 58, 44 85, 48 112 C 43 113, 38 112, 34 110 Z"
+      fill="url(#blueGrad)"
+    />
+
+    <!-- Teal Center Swoosh -->
+    <path
+      d="M48 126 C 45 105, 56 80, 78 62 C 92 50, 108 44, 124 43 C 110 49, 97 58, 87 69 C 70 87, 64 108, 68 128 C 61 129, 54 128, 48 126 Z"
+      fill="url(#tealGrad)"
+    />
+    <!-- Teal floating capsule -->
+    <rect x="130" y="44" width="14" height="28" rx="7" transform="rotate(40 130 44)" fill="url(#tealGrad)" />
+
+    <!-- Orange Lower Swoosh -->
+    <path
+      d="M62 138 C 65 125, 74 110, 88 98 C 98 90, 108 85, 118 84 C 110 88, 102 94, 96 101 C 85 113, 81 126, 82 138 C 75 140, 68 140, 62 138 Z"
+      fill="url(#orangeGrad)"
+    />
+    <!-- Orange floating capsule -->
+    <rect x="126" y="85" width="12" height="22" rx="6" transform="rotate(42 126 85)" fill="url(#orangeGrad)" />
+  </g>
+
+  <!-- WORDMARK: 4Sales -->
+  <g transform="translate(170, 40)">
+    <!-- Number 4 -->
+    <path
+      d="M42 75 L42 22 L22 55 L22 75 L42 75 Z M42 75 L42 95 L58 95 L58 75 L70 75 L70 60 L58 60 L58 0 L36 0 L0 58 L0 75 L42 75 Z"
+      fill="#3A3F45"
+    />
+
+    <!-- Stylized Letter 'S' in Gradient -->
+    <g transform="translate(68, -4)">
+      <path
+        d="M50 15 C 38 15, 26 19, 18 27 C 10 35, 8 46, 12 55 C 16 63, 27 68, 40 73 C 55 78, 64 83, 64 92 C 64 100, 56 106, 44 106 C 30 106, 18 99, 10 90 L0 102 C 12 115, 28 122, 45 122 C 67 122, 82 110, 82 91 C 82 78, 73 70, 56 64 C 42 59, 30 55, 28 47 C 26 41, 31 32, 42 32 C 54 32, 63 37, 70 45 L80 32 C 70 21, 58 15, 50 15 Z"
+        fill="url(#sGrad)"
+      />
+    </g>
+
+    <!-- 'ales' -->
+    <g transform="translate(150, 22)">
+      <!-- a -->
+      <path
+        d="M26 40 C 26 30, 20 25, 12 25 C 5 25, 0 29, 0 35 C 0 42, 6 46, 15 46 L26 46 L26 40 Z M38 21 L38 58 L26 58 L26 52 C 22 56, 16 59, 9 59 C -2 59, -11 50, -11 37 C -11 25, -2 15, 12 15 C 17 15, 22 17, 26 20 L26 18 C 26 10, 20 5, 10 5 C 4 5, -1 7, -6 11 L-10 0 C -3 -4, 4 -7, 12 -7 C 28 -7, 38 3, 38 21 Z"
+        fill="#3A3F45"
+        transform="translate(15, 20)"
+      />
+      <!-- l -->
+      <rect x="68" y="0" width="11" height="78" rx="2" fill="#3A3F45" />
+      <!-- e -->
+      <path
+        d="M32 20 C 32 8, 24 0, 12 0 C 0 0, -8 9, -8 22 C -8 35, 1 44, 13 44 C 21 44, 28 40, 33 34 L25 27 C 22 31, 18 33, 13 33 C 5 33, 2 28, 2 21 L32 21 Z M2 13 C 2 7, 7 8, 12 8 C 17 8, 22 10, 22 13 L2 13 Z"
+        fill="#3A3F45"
+        transform="translate(92, 34)"
+      />
+      <!-- s -->
+      <path
+        d="M20 8 C 14 8, 10 11, 10 16 C 10 20, 13 23, 20 25 C 29 28, 34 32, 34 39 C 34 47, 27 53, 17 53 C 10 53, 4 50, 0 45 L5 36 C 9 40, 13 42, 18 42 C 23 42, 25 39, 25 36 C 25 32, 21 30, 15 28 C 6 25, 1 20, 1 14 C 1 6, 7 0, 18 0 C 24 0, 30 3, 33 7 L27 15 C 24 11, 21 8, 20 8 Z"
+        fill="#3A3F45"
+        transform="translate(132, 25)"
+      />
+    </g>
+  </g>
+</svg>

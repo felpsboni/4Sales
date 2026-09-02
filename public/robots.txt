@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://4sales.com.br/sitemap.xml

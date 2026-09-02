@@ -1,0 +1,8 @@
+{
+  "name": "Remix 4Sales - CRM, Força de Vendas e Portal B2B",
+  "description": "Centralize CRM, força de vendas, pedidos e portal B2B em uma plataforma 100% na nuvem, integrada ao ERP e desenvolvida pela Fabritech para indústrias, distribuidores e atacadistas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
